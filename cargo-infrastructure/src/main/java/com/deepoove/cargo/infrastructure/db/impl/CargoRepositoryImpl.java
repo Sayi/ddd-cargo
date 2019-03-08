@@ -2,15 +2,17 @@ package com.deepoove.cargo.infrastructure.db.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.deepoove.cargo.infrastructure.db.CargoRepository;
-import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
+import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
+import com.deepoove.cargo.domain.aggregate.cargo.CargoRepository;
+
 
 @Component
 public class CargoRepositoryImpl implements CargoRepository{
 
     @Override
-    public void save(CargoDO cargo) {
+    public void save(Cargo cargo) {
         // TODO Auto-generated method stub
+//        CargoDO
     }
 
 }

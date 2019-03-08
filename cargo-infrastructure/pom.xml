@@ -25,5 +25,20 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency> -->
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>cargo-application</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>cargo-domain</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>cargo-web</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
 	</dependencies>
 </project>
