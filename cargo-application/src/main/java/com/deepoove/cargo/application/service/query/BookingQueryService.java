@@ -1,9 +1,13 @@
 package com.deepoove.cargo.application.service.query;
 
-import com.deepoove.cargo.application.co.CargoCO;
+import java.util.List;
+
+import com.deepoove.cargo.application.dto.CargoDTO;
 
 public interface BookingQueryService {
-    
-    void book(CargoCO cargoCO);
+
+    List<CargoDTO> queryCargos();
+
+    List<CargoDTO> queryCargos(String customerId);
 
 }

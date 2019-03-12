@@ -1,4 +1,4 @@
-package com.deepoove.cargo.infrastructure.db.impl;
+package com.deepoove.cargo.infrastructure.mongo.impl;
 
 import org.springframework.stereotype.Component;
 

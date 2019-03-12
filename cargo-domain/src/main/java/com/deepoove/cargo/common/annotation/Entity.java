@@ -1,4 +1,4 @@
-package com.deepoove.cargo.infrastructure.common.annotation;
+package com.deepoove.cargo.common.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
