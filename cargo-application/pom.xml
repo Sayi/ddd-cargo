@@ -16,18 +16,22 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<dependencies>
-        <dependency>
-            <groupId>com.deepoove</groupId>
-            <artifactId>cargo-api</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.deepoove</groupId>
-            <artifactId>cargo-domain</artifactId>
-            <version>${parent.version}</version>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.deepoove</groupId>
+			<artifactId>cargo-api</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.deepoove</groupId>
+			<artifactId>cargo-domain</artifactId>
+			<version>${parent.version}</version>
+		</dependency>
+	</dependencies>
 
 </project>
