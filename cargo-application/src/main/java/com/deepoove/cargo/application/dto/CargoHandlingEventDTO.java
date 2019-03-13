@@ -1,5 +1,5 @@
 package com.deepoove.cargo.application.dto;
 
-public class HandlingEventDTO {
+public class CargoHandlingEventDTO {
 
 }

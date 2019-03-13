@@ -1,13 +1,26 @@
-package com.deepoove.cargo.domain.aggregate.cargo.valueobject;
+package com.deepoove.cargo.application.cmd;
 
-public class DeliverySpecification {
+public class CargoBookCommand {
 
+    private String senderId;
+    private String description;
     private String originLocationCode;
     private String destinationLocationCode;
 
-    public DeliverySpecification(String originLocationCode, String destinationLocationCode) {
-        this.originLocationCode = originLocationCode;
-        this.destinationLocationCode = destinationLocationCode;
+    public String getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getOriginLocationCode() {

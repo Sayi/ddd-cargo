@@ -2,27 +2,41 @@ package com.deepoove.cargo.domain.aggregate.handlingevent;
 
 import java.util.Date;
 
-import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
-import com.deepoove.cargo.domain.aggregate.carriermovement.CarrierMovement;
-
 public class HandlingEvent {
-    private Cargo cargo;
+
+    private String cargoId;
     private Date datetime;
     private EventTypeEnum eventType;
-    
-    private CarrierMovement carrierMovement;
-    
-    
-    public HandlingEvent(Cargo cargo, EventTypeEnum eventType, Date time) {
-        this.cargo = cargo;
+
+    private String scheduleId;
+
+    public HandlingEvent(String cargoId, EventTypeEnum eventType, Date time) {
+        this.cargoId = cargoId;
         this.eventType = eventType;
         this.datetime = time;
     }
-    
-    public static HandlingEvent newLoad(Cargo cargo, CarrierMovement movement, Date time) {
-        HandlingEvent handlingEvent = new HandlingEvent(cargo, EventTypeEnum.LOAD, time);
-        handlingEvent.carrierMovement = movement;
+
+    public static HandlingEvent newHandlingEvent(String cargoId, Date time, EventTypeEnum eventType,
+            String scheduleId) {
+        HandlingEvent handlingEvent = new HandlingEvent(cargoId, eventType, time);
+        handlingEvent.scheduleId = scheduleId;
         return handlingEvent;
-        
-    } 
+    }
+
+    public Date datetime() {
+        return datetime;
+    }
+
+    public String cargoId() {
+        return cargoId;
+    }
+
+    public EventTypeEnum eventType() {
+        return eventType;
+    }
+
+    public String scheduleId() {
+        return scheduleId;
+    }
+
 }
