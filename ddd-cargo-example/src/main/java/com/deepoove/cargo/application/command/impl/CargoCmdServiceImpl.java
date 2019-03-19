@@ -1,9 +1,9 @@
-package com.deepoove.cargo.application.service.command.impl;
+package com.deepoove.cargo.application.command.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.deepoove.cargo.application.cmd.CargoBookCommand;
-import com.deepoove.cargo.application.service.command.CargoCmdService;
+import com.deepoove.cargo.application.command.CargoCmdService;
+import com.deepoove.cargo.application.command.cmd.CargoBookCommand;
 import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
 import com.deepoove.cargo.domain.aggregate.cargo.CargoRepository;
 import com.deepoove.cargo.domain.aggregate.cargo.valueobject.DeliverySpecification;

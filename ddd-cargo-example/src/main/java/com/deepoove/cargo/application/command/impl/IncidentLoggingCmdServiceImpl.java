@@ -1,9 +1,9 @@
-package com.deepoove.cargo.application.service.command.impl;
+package com.deepoove.cargo.application.command.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.deepoove.cargo.application.cmd.HandlingEventAddCommand;
-import com.deepoove.cargo.application.service.command.IncidentLoggingCmdService;
+import com.deepoove.cargo.application.command.IncidentLoggingCmdService;
+import com.deepoove.cargo.application.command.cmd.HandlingEventAddCommand;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEvent;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEventRepository;
 

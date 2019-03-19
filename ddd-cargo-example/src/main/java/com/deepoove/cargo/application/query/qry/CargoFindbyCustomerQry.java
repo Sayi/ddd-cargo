@@ -1,4 +1,4 @@
-package com.deepoove.cargo.application.qry;
+package com.deepoove.cargo.application.query.qry;
 
 public class CargoFindbyCustomerQry {
 

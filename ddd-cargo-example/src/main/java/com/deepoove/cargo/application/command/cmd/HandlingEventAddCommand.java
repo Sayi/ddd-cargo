@@ -1,4 +1,4 @@
-package com.deepoove.cargo.application.cmd;
+package com.deepoove.cargo.application.command.cmd;
 
 import java.util.Date;
 
