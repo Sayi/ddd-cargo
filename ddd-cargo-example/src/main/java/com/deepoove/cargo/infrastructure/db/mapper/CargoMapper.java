@@ -10,8 +10,8 @@ import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
 @Mapper
 public interface CargoMapper {
     
-//    @Select("SELECT * FROM app_config WHERE name = #{id}")
-//    AppConfig find(@Param("id") String id);
+    @Select("SELECT * FROM app_config WHERE name = #{id}")
+    AppConfig findConfig(@Param("id") String id);
     
     
     @Select("SELECT * FROM cargo WHERE id = #{id}")

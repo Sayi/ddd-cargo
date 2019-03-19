@@ -19,7 +19,8 @@ public class CargoRepositoryImpl implements CargoRepository {
 
     @Override
     public Cargo find(String id) {
-        CargoDO cargoDO = cargoMapper.find(id);
+//        CargoDO cargoDO = cargoMapper.find(id);
+        System.out.println(cargoMapper.findConfig("app_android_comment"));
         
         // convertor deseriease
         Cargo cargo = new Cargo(null);
