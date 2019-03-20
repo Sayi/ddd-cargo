@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.deepoove.cargo.infrastructure.db.mapper.CarrierMovementMapper">
+
+	<resultMap id="carrierMovementDO"
+		type="com.deepoove.cargo.infrastructure.db.dataobject.CarrierMovementDO">
+		<result property="scheduleId" column="schedule_id" />
+		<result property="fromLocationId" column="fromLocation_code" />
+		<result property="toLocationId" column="toLocation_code" />
+	</resultMap>
+
+	<select id="select" resultType="carrierMovementDO">
+		SELECT * FROM
+		ddd_carrier_movement WHERE id =
+		#{scheduleId}
+	</select>
+	<select id="selectAll" resultType="carrierMovementDO">
+		SELECT * FROM
+		ddd_carrier_movement
+	</select>
+
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.deepoove.cargo.infrastructure.db.mapper.CargoMapper">
+
+	<resultMap id="cargoDO"
+		type="com.deepoove.cargo.infrastructure.db.dataobject.CargoDO">
+		<result property="senderPhone" column="sender_phone" />
+		<result property="originLocationCode"
+			column="originLocation_code" />
+		<result property="destinationLocationCode"
+			column="destinationLocation_code" />
+	</resultMap>
+
+	<select id="select" resultMap="cargoDO">
+		SELECT * FROM ddd_cargo WHERE id =
+		#{id}
+	</select>
+	<select id="selectAll" resultMap="cargoDO">
+		SELECT * FROM ddd_cargo
+	</select>
+	<select id="selectByCustomer" resultMap="cargoDO">
+		SELECT * FROM
+		ddd_cargo
+		WHERE sender_phone = #{phone}
+	</select>
+	<select id="countByCustomer" resultType="integer">
+        SELECT count(*) FROM ddd_cargo WHERE sender_phone = #{phone}
+    </select>
+	<insert id="save">
+		INSERT INTO ddd_cargo (`id`,
+		`sender_id`,
+		`description`,
+		`originLocation_code`,
+		`destinationLocation_code`,
+		`created_at`)
+		VALUES (#{id}, #{senderId},
+		#{description},
+		#{originLocationCode},
+		#{destinationLocationCode},
+		now())
+	</insert>
+	<delete id="remove">
+		DELETE FROM ddd_cargo WHERE id =
+		#{id}
+	</delete>
+</mapper>

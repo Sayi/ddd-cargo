@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.deepoove.cargo.infrastructure.db.mapper.HandlingEventMapper">
+
+	<resultMap id="handlingEventDO"
+		type="com.deepoove.cargo.infrastructure.db.dataobject.HandlingEventDO">
+		<result property="cargoId" column="cargo_id" />
+		<result property="scheduleId" column="schedule_id" />
+	</resultMap>
+
+	<select id="selectByCargo" resultMap="handlingEventDO">
+		SELECT * FROM
+		ddd_handling_event WHERE cargo_id =
+		#{cargoId} order by datetime desc
+	</select>
+	<select id="selectByScheduleId" resultMap="handlingEventDO">
+		SELECT * FROM
+		ddd_handling_event WHERE schedule_id = #{scheduleId}
+	</select>
+
+	<insert id="save">
+		INSERT INTO `ddd_handling_event` (`id`, `cargo_id`,
+		`eventtype`,
+		`schedule_id`, `datetime`, `created_at`)
+		VALUES
+		(#{id},
+		#{cargoId}, #{eventType}, #{scheduleId}, #{datetime}, now());
+	</insert>
+
+</mapper>

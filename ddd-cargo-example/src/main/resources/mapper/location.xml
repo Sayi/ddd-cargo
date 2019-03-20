@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.deepoove.cargo.infrastructure.db.mapper.LocationMapper">
+
+	<select id="select"
+		resultType="com.deepoove.cargo.infrastructure.db.dataobject.LocationDO">
+		SELECT * FROM ddd_location WHERE code =
+		#{code}
+	</select>
+	<select id="selectAll"
+		resultType="com.deepoove.cargo.infrastructure.db.dataobject.LocationDO">
+		SELECT * FROM ddd_location
+	</select>
+
+</mapper>

@@ -1,32 +1,50 @@
 package com.deepoove.cargo.application.query.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.deepoove.cargo.application.query.TrackQueryService;
+import com.deepoove.cargo.application.query.converter.CargoDTOConverter;
+import com.deepoove.cargo.application.query.converter.HandlingEventDTOConverter;
+import com.deepoove.cargo.application.query.dto.CargoDTO;
 import com.deepoove.cargo.application.query.dto.CargoHandlingEventDTO;
-import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
-import com.deepoove.cargo.domain.aggregate.cargo.CargoRepository;
-import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEvent;
-import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEventRepository;
+import com.deepoove.cargo.application.query.dto.HandlingEventDTO;
+import com.deepoove.cargo.application.query.qry.EventFindbyCargoQry;
+import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
+import com.deepoove.cargo.infrastructure.db.dataobject.HandlingEventDO;
+import com.deepoove.cargo.infrastructure.db.mapper.CargoMapper;
+import com.deepoove.cargo.infrastructure.db.mapper.CarrierMovementMapper;
+import com.deepoove.cargo.infrastructure.db.mapper.HandlingEventMapper;
 
 public class TrackQueryServiceImpl implements TrackQueryService {
 
     @Autowired
-    private HandlingEventRepository handlingEventRepository;
-    
+    private HandlingEventMapper handlingEventMapper;
+
     @Autowired
-    private CargoRepository cargoRepository;
+    private CargoMapper cargoMapper;
+
+    @Autowired
+    private CargoDTOConverter converter;
+    @Autowired
+    private HandlingEventDTOConverter handlingEventDTOConverter;
 
     @Override
-    public CargoHandlingEventDTO queryHistory(String cargoId) {
+    public CargoHandlingEventDTO queryHistory(EventFindbyCargoQry qry) {
 
-        List<HandlingEvent> events = handlingEventRepository.findByCargo(cargoId);
+        CargoDO cargo = cargoMapper.select(qry.getCargoId());
+        List<HandlingEventDO> events = handlingEventMapper.selectByCargo(qry.getCargoId());
 
-        Cargo cargo = cargoRepository.find(cargoId);
         // convertor
-        CargoHandlingEventDTO cargoHandlingEventDTO = null;
+        CargoDTO cargoDTO = converter.apply(cargo);
+        List<HandlingEventDTO> dtoEvents = events.stream().map(handlingEventDTOConverter::apply)
+                .collect(Collectors.toList());
+
+        CargoHandlingEventDTO cargoHandlingEventDTO = new CargoHandlingEventDTO();
+        cargoHandlingEventDTO.setCargo(cargoDTO);
+        cargoHandlingEventDTO.setEvents(dtoEvents);
 
         return cargoHandlingEventDTO;
     }

@@ -3,7 +3,7 @@ package com.deepoove.cargo.infrastructure.db.dataobject;
 public class CargoDO {
 
     private String id;
-    private String senderId;
+    private String senderPhone;
     private String description;
     private String originLocationCode;
     private String destinationLocationCode;
@@ -16,12 +16,12 @@ public class CargoDO {
         this.id = id;
     }
 
-    public String getSenderId() {
-        return senderId;
+    public String getSenderPhone() {
+        return senderPhone;
     }
 
-    public void setSenderId(String senderId) {
-        this.senderId = senderId;
+    public void setSenderPhone(String senderPhone) {
+        this.senderPhone = senderPhone;
     }
 
     public String getDescription() {

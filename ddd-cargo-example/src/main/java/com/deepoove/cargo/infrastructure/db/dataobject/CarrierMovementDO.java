@@ -1,8 +1,8 @@
-package com.deepoove.cargo.domain.aggregate.carriermovement;
+package com.deepoove.cargo.infrastructure.db.dataobject;
 
 import java.util.Date;
 
-public class CarrierMovement {
+public class CarrierMovementDO {
 
     private String scheduleId;
     private String fromLocationId;
@@ -10,7 +10,7 @@ public class CarrierMovement {
     private Date startTime;
     private Date arriveTime;
 
-    public CarrierMovement() {}
+    public CarrierMovementDO() {}
 
     public String getScheduleId() {
         return scheduleId;

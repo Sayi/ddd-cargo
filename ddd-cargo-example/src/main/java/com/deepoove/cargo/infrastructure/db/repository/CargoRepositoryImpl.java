@@ -1,4 +1,4 @@
-package com.deepoove.cargo.infrastructure.db.impl;
+package com.deepoove.cargo.infrastructure.db.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ public class CargoRepositoryImpl implements CargoRepository {
 
     @Override
     public Cargo find(String id) {
-        CargoDO cargoDO = cargoMapper.find(id);
+        CargoDO cargoDO = cargoMapper.select(id);
         Cargo cargo = CargoConverter.deserialize(cargoDO);
         return cargo;
     }
@@ -26,7 +26,16 @@ public class CargoRepositoryImpl implements CargoRepository {
     public void save(Cargo cargo) {
         CargoDO cargoDO = CargoConverter.serialize(cargo);
         cargoMapper.save(cargoDO);
+    }
 
+    @Override
+    public void remove(String id) {
+        cargoMapper.remove(id);
+    }
+
+    @Override
+    public int sizeByCustomer(String customerPhone) {
+        return cargoMapper.countByCustomer(customerPhone);
     }
 
 }

@@ -7,12 +7,15 @@ import com.deepoove.cargo.domain.aggregate.cargo.valueobject.DeliverySpecificati
 public class Cargo {
 
     private String id;
-    private String senderId;
+    private String senderPhone;
     private String description;
     private DeliverySpecification delivery;
 
     public Cargo(String id) {
         this.id = id;
+    }
+    
+    public Cargo() {
     }
 
     /**
@@ -23,11 +26,11 @@ public class Cargo {
      * @param delivery
      * @return
      */
-    public static Cargo newCargo(String senderId, String description,
+    public static Cargo newCargo(String senderPhone, String description,
             DeliverySpecification delivery) {
         String id = nextCargoId();
         Cargo cargo = new Cargo(id);
-        cargo.senderId = senderId;
+        cargo.senderPhone = senderPhone;
         cargo.description = description;
         cargo.delivery = delivery;
         return cargo;
@@ -45,9 +48,31 @@ public class Cargo {
     public String id() {
         return id;
     }
-    
+
     public String sender() {
-        return senderId;
+        return senderPhone;
+    }
+
+    public String description() {
+        return description;
+    }
+
+    public DeliverySpecification delivery() {
+        return delivery;
+    }
+    
+    public void setDelivery(DeliverySpecification delivery) {
+        this.delivery = delivery;
+    }
+
+    public void changeDelivery(String originLocationCode, String destinationLocationCode) {
+        this.delivery.setOriginLocationCode(originLocationCode);
+        this.delivery.setDestinationLocationCode(destinationLocationCode);
+
+    }
+
+    public static boolean canBook(int size) {
+        return size <= 10;
     }
 
 }

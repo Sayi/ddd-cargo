@@ -1,26 +1,18 @@
 package com.deepoove.cargo.application.command.cmd;
 
-public class CargoBookCommand {
+public class CargoDeliveryUpdateCommand {
 
-    private String senderPhone;
-    private String description;
+    private String cargoId;
+
     private String originLocationCode;
     private String destinationLocationCode;
 
-    public String getSenderId() {
-        return senderPhone;
+    public String getCargoId() {
+        return cargoId;
     }
 
-    public void setSenderId(String senderId) {
-        this.senderPhone = senderId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCargoId(String cargoId) {
+        this.cargoId = cargoId;
     }
 
     public String getOriginLocationCode() {

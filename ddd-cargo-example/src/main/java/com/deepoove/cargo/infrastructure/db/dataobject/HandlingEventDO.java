@@ -1,8 +1,8 @@
-package com.deepoove.cargo.application.command.cmd;
+package com.deepoove.cargo.infrastructure.db.dataobject;
 
 import java.util.Date;
 
-public class HandlingEventAddCommand {
+public class HandlingEventDO {
 
     private String cargoId;
     /**
@@ -28,20 +28,20 @@ public class HandlingEventAddCommand {
         this.eventType = eventType;
     }
 
-    public String getScheduleId() {
-        return scheduleId;
-    }
-
-    public void setScheduleId(String scheduleId) {
-        this.scheduleId = scheduleId;
-    }
-
     public Date getDatetime() {
         return datetime;
     }
 
     public void setDatetime(Date datetime) {
         this.datetime = datetime;
+    }
+
+    public String getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(String scheduleId) {
+        this.scheduleId = scheduleId;
     }
 
 }
