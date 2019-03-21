@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.deepoove.cargo.application.query.CargoQueryService;
-import com.deepoove.cargo.application.query.converter.CargoDTOConverter;
+import com.deepoove.cargo.application.query.assembler.CargoDTOAssembler;
 import com.deepoove.cargo.application.query.dto.CargoDTO;
 import com.deepoove.cargo.application.query.qry.CargoFindbyCustomerQry;
 import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
@@ -20,7 +20,7 @@ public class CargoQueryServiceImpl implements CargoQueryService {
     private CargoMapper cargoMapper;
     
     @Autowired
-    private CargoDTOConverter converter;
+    private CargoDTOAssembler converter;
 
     @Override
     public List<CargoDTO> queryCargos() {

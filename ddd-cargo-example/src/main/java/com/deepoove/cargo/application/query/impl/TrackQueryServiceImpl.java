@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.deepoove.cargo.application.query.TrackQueryService;
-import com.deepoove.cargo.application.query.converter.CargoDTOConverter;
-import com.deepoove.cargo.application.query.converter.HandlingEventDTOConverter;
+import com.deepoove.cargo.application.query.assembler.CargoDTOAssembler;
+import com.deepoove.cargo.application.query.assembler.HandlingEventDTOAssembler;
 import com.deepoove.cargo.application.query.dto.CargoDTO;
 import com.deepoove.cargo.application.query.dto.CargoHandlingEventDTO;
 import com.deepoove.cargo.application.query.dto.HandlingEventDTO;
@@ -27,9 +27,9 @@ public class TrackQueryServiceImpl implements TrackQueryService {
     private CargoMapper cargoMapper;
 
     @Autowired
-    private CargoDTOConverter converter;
+    private CargoDTOAssembler converter;
     @Autowired
-    private HandlingEventDTOConverter handlingEventDTOConverter;
+    private HandlingEventDTOAssembler handlingEventDTOAssembler;
 
     @Override
     public CargoHandlingEventDTO queryHistory(EventFindbyCargoQry qry) {
@@ -39,7 +39,7 @@ public class TrackQueryServiceImpl implements TrackQueryService {
 
         // convertor
         CargoDTO cargoDTO = converter.apply(cargo);
-        List<HandlingEventDTO> dtoEvents = events.stream().map(handlingEventDTOConverter::apply)
+        List<HandlingEventDTO> dtoEvents = events.stream().map(handlingEventDTOAssembler::apply)
                 .collect(Collectors.toList());
 
         CargoHandlingEventDTO cargoHandlingEventDTO = new CargoHandlingEventDTO();

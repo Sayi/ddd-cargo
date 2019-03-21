@@ -14,9 +14,8 @@ public class Cargo {
     public Cargo(String id) {
         this.id = id;
     }
-    
-    public Cargo() {
-    }
+
+    public Cargo() {}
 
     /**
      * Factory method：预订新的货物
@@ -60,19 +59,20 @@ public class Cargo {
     public DeliverySpecification delivery() {
         return delivery;
     }
-    
+
     public void setDelivery(DeliverySpecification delivery) {
         this.delivery = delivery;
     }
 
-    public void changeDelivery(String originLocationCode, String destinationLocationCode) {
-        this.delivery.setOriginLocationCode(originLocationCode);
+    public void changeDelivery(String destinationLocationCode) {
+        if (this.delivery
+                .getOriginLocationCode() == destinationLocationCode) { throw new IllegalArgumentException(
+                        "destination and origin location cannot be the same."); }
         this.delivery.setDestinationLocationCode(destinationLocationCode);
-
     }
 
-    public static boolean canBook(int size) {
-        return size <= 10;
+    public void changeSender(String senderPhone) {
+        this.senderPhone = senderPhone;
     }
 
 }

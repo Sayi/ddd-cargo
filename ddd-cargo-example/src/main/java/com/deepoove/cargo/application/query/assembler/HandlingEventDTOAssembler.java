@@ -1,4 +1,4 @@
-package com.deepoove.cargo.application.query.converter;
+package com.deepoove.cargo.application.query.assembler;
 
 import java.text.SimpleDateFormat;
 import java.util.function.Function;
@@ -15,12 +15,12 @@ import com.deepoove.cargo.infrastructure.db.dataobject.HandlingEventDO;
 import com.deepoove.cargo.infrastructure.db.mapper.CarrierMovementMapper;
 
 @Component
-public class HandlingEventDTOConverter implements Function<HandlingEventDO, HandlingEventDTO> {
+public class HandlingEventDTOAssembler implements Function<HandlingEventDO, HandlingEventDTO> {
 
     @Autowired
     private CarrierMovementMapper carrierMovementMapper;
     @Autowired
-    private CarrierMovementDTOConverter converter;
+    private CarrierMovementDTOAssembler converter;
 
     public HandlingEventDTO apply(HandlingEventDO t) {
         HandlingEventDTO target = new HandlingEventDTO();

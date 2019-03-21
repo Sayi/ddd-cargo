@@ -1,4 +1,4 @@
-package com.deepoove.cargo.application.query.converter;
+package com.deepoove.cargo.application.query.assembler;
 
 import java.text.SimpleDateFormat;
 import java.util.function.Function;
@@ -11,7 +11,7 @@ import com.deepoove.cargo.infrastructure.db.dataobject.CarrierMovementDO;
 import com.deepoove.cargo.infrastructure.db.mapper.LocationMapper;
 
 @Component
-public class CarrierMovementDTOConverter
+public class CarrierMovementDTOAssembler
         implements Function<CarrierMovementDO, CarrierMovementDTO> {
 
     @Autowired

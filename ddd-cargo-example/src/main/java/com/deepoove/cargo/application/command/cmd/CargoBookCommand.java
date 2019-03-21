@@ -7,11 +7,11 @@ public class CargoBookCommand {
     private String originLocationCode;
     private String destinationLocationCode;
 
-    public String getSenderId() {
+    public String getSenderPhone() {
         return senderPhone;
     }
 
-    public void setSenderId(String senderId) {
+    public void setSenderPhone(String senderId) {
         this.senderPhone = senderId;
     }
 

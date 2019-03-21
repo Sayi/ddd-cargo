@@ -1,4 +1,4 @@
-package com.deepoove.cargo.application.query.converter;
+package com.deepoove.cargo.application.query.assembler;
 
 import java.util.function.Function;
 
@@ -12,7 +12,7 @@ import com.deepoove.cargo.infrastructure.db.dataobject.LocationDO;
 import com.deepoove.cargo.infrastructure.db.mapper.LocationMapper;
 
 @Component
-public class CargoDTOConverter implements Function<CargoDO, CargoDTO> {
+public class CargoDTOAssembler implements Function<CargoDO, CargoDTO> {
 
     @Autowired
     private LocationMapper locationMapper;
