@@ -11,11 +11,15 @@ import com.deepoove.cargo.application.command.cmd.CargoDeleteCommand;
 import com.deepoove.cargo.application.command.cmd.CargoDeliveryUpdateCommand;
 import com.deepoove.cargo.application.command.cmd.CargoSenderUpdateCommand;
 import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
+import com.deepoove.cargo.domain.aggregate.cargo.CargoBookDomainEvent;
 import com.deepoove.cargo.domain.aggregate.cargo.CargoRepository;
 import com.deepoove.cargo.domain.aggregate.cargo.valueobject.DeliverySpecification;
+import com.deepoove.cargo.domain.aggregate.cargo.valueobject.EnterpriseSegment;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEvent;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEventRepository;
 import com.deepoove.cargo.domain.service.CargoDomainService;
+import com.deepoove.cargo.infrastructure.event.DomainEventPublisher;
+import com.deepoove.cargo.infrastructure.rpc.salessystem.SalersService;
 
 @Service
 public class CargoCmdServiceImpl implements CargoCmdService {
@@ -26,15 +30,13 @@ public class CargoCmdServiceImpl implements CargoCmdService {
     private HandlingEventRepository handlingEventRepository;
     @Autowired
     private CargoDomainService cargoDomainService;
+    @Autowired
+    private SalersService salersService;
+    @Autowired
+    DomainEventPublisher domainEventPublisher;
 
     @Override
     public void bookCargo(CargoBookCommand cargoBookCommand) {
-        // 流程编排
-        int size = cargoRepository.sizeByCustomer(cargoBookCommand.getSenderPhone());
-        if (!cargoDomainService.canBook(size)) { throw new IllegalArgumentException(
-                cargoBookCommand.getSenderPhone() + " cannot book cargo, exceed the limit: "
-                        + CargoDomainService.MAX_CARGO_LIMIT); }
-
         // create Cargo
         DeliverySpecification delivery = new DeliverySpecification(
                 cargoBookCommand.getOriginLocationCode(),
@@ -43,8 +45,21 @@ public class CargoCmdServiceImpl implements CargoCmdService {
         Cargo cargo = Cargo.newCargo(cargoBookCommand.getSenderPhone(),
                 cargoBookCommand.getDescription(), delivery);
 
+        // 流程编排
+        int size = cargoRepository.sizeByCustomer(cargoBookCommand.getSenderPhone());
+        EnterpriseSegment enterpriseSegment = salersService.deriveEnterpriseSegment(cargo);
+        int sizeCargo = cargoRepository.sizeByEnterpriseSegment(enterpriseSegment);
+        
+        if (!cargoDomainService.mayAccept(size, sizeCargo,
+                cargo)) { throw new IllegalArgumentException(
+                        cargoBookCommand.getSenderPhone() + " cannot book cargo, exceed the limit: "
+                                + CargoDomainService.MAX_CARGO_LIMIT); }
+
         // saveCargo
         cargoRepository.save(cargo);
+        
+        // post domain event
+        domainEventPublisher.publish(new CargoBookDomainEvent(cargo));
     }
 
     @Override

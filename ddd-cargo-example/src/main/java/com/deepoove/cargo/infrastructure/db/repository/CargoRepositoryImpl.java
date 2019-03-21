@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
 import com.deepoove.cargo.domain.aggregate.cargo.CargoRepository;
+import com.deepoove.cargo.domain.aggregate.cargo.valueobject.EnterpriseSegment;
 import com.deepoove.cargo.infrastructure.db.converter.CargoConverter;
 import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
 import com.deepoove.cargo.infrastructure.db.mapper.CargoMapper;
@@ -36,6 +37,12 @@ public class CargoRepositoryImpl implements CargoRepository {
     @Override
     public int sizeByCustomer(String customerPhone) {
         return cargoMapper.countByCustomer(customerPhone);
+    }
+
+    @Override
+    public int sizeByEnterpriseSegment(EnterpriseSegment enterpriseSegment) {
+        // cargoMapper
+        return 20;
     }
 
 }

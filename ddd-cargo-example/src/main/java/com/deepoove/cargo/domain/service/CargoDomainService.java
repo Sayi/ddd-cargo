@@ -1,22 +1,20 @@
 package com.deepoove.cargo.domain.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEvent;
+import com.deepoove.cargo.infrastructure.rpc.salessystem.SalersService;
 
 @Service
 public class CargoDomainService {
 
     public static final int MAX_CARGO_LIMIT = 10;
 
-    /**
-     * 领域服务
-     * 
-     * @param cargo
-     * @param senderPhone
-     * @param latestEvent
-     */
+    @Autowired
+    private SalersService salersService;
+
     public void updateCargoSender(Cargo cargo, String senderPhone, HandlingEvent latestEvent) {
 
         if (null != latestEvent
@@ -26,8 +24,8 @@ public class CargoDomainService {
         cargo.changeSender(senderPhone);
     }
 
-    public boolean canBook(int size) {
-        return size <= MAX_CARGO_LIMIT;
+    public boolean mayAccept(int size, int cargoSize, Cargo cargo) {
+        return size <= MAX_CARGO_LIMIT && salersService.mayAccept(cargoSize, cargo);
     }
 
 }
