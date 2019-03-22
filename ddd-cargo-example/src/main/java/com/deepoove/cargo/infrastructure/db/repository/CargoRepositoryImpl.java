@@ -26,7 +26,12 @@ public class CargoRepositoryImpl implements CargoRepository {
     @Override
     public void save(Cargo cargo) {
         CargoDO cargoDO = CargoConverter.serialize(cargo);
-        cargoMapper.save(cargoDO);
+        CargoDO data = cargoMapper.select(cargoDO.getId());
+        if (null == data) {
+            cargoMapper.save(cargoDO);
+        } else {
+            cargoMapper.update(cargoDO);
+        }
     }
 
     @Override

@@ -27,20 +27,28 @@
 		WHERE sender_phone = #{phone}
 	</select>
 	<select id="countByCustomer" resultType="integer">
-        SELECT count(*) FROM ddd_cargo WHERE sender_phone = #{phone}
-    </select>
+		SELECT count(*) FROM ddd_cargo WHERE sender_phone = #{phone}
+	</select>
 	<insert id="save">
 		INSERT INTO ddd_cargo (`id`,
-		`sender_id`,
+		`sender_phone`,
 		`description`,
 		`originLocation_code`,
 		`destinationLocation_code`,
 		`created_at`)
-		VALUES (#{id}, #{senderId},
+		VALUES (#{id}, #{senderPhone},
 		#{description},
 		#{originLocationCode},
 		#{destinationLocationCode},
 		now())
+	</insert>
+	<insert id="update">
+		UPDATE ddd_cargo
+		set sender_phone = #{senderPhone},
+		description = #{description},
+		originLocation_code = #{originLocationCode},
+		destinationLocation_code = #{destinationLocationCode}
+		WHERE id = #{id}
 	</insert>
 	<delete id="remove">
 		DELETE FROM ddd_cargo WHERE id =

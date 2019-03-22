@@ -20,28 +20,18 @@ public class Cargo {
     /**
      * Factory method：预订新的货物
      * 
-     * @param senderId
+     * @param senderPhone
      * @param description
      * @param delivery
      * @return
      */
-    public static Cargo newCargo(String senderPhone, String description,
+    public static Cargo newCargo(String id, String senderPhone, String description,
             DeliverySpecification delivery) {
-        String id = nextCargoId();
         Cargo cargo = new Cargo(id);
         cargo.senderPhone = senderPhone;
         cargo.description = description;
         cargo.delivery = delivery;
         return cargo;
-    }
-
-    /**
-     * 货物物流id生成规则
-     * 
-     * @return
-     */
-    private static String nextCargoId() {
-        return "CARGO-NO-" + (10000 + new Random().nextInt(9999));
     }
 
     public String id() {

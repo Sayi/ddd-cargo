@@ -12,8 +12,8 @@ public class HandlingEvent {
 
     private String scheduleId;
 
-    public HandlingEvent(String cargoId, Date time, EventTypeEnum eventType) {
-        this.id = UUID.randomUUID().toString();
+    private HandlingEvent(String id, String cargoId, Date time, EventTypeEnum eventType) {
+        this.id = id;
         this.cargoId = cargoId;
         this.eventType = eventType;
         this.datetime = time;
@@ -21,11 +21,16 @@ public class HandlingEvent {
 
     public static HandlingEvent newHandlingEvent(String cargoId, Date time, EventTypeEnum eventType,
             String scheduleId) {
-        HandlingEvent handlingEvent = new HandlingEvent(cargoId, time, eventType);
+        return newHandlingEvent(UUID.randomUUID().toString(), cargoId, time, eventType, scheduleId);
+    }
+
+    public static HandlingEvent newHandlingEvent(String id, String cargoId, Date time,
+            EventTypeEnum eventType, String scheduleId) {
+        HandlingEvent handlingEvent = new HandlingEvent(id, cargoId, time, eventType);
         handlingEvent.scheduleId = scheduleId;
         return handlingEvent;
     }
-    
+
     public boolean canModifyCargo() {
         return eventType == EventTypeEnum.RECIEVE;
     }

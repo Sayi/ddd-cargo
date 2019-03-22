@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.deepoove.cargo.application.query.TrackQueryService;
 import com.deepoove.cargo.application.query.assembler.CargoDTOAssembler;
@@ -18,6 +19,7 @@ import com.deepoove.cargo.infrastructure.db.mapper.CargoMapper;
 import com.deepoove.cargo.infrastructure.db.mapper.CarrierMovementMapper;
 import com.deepoove.cargo.infrastructure.db.mapper.HandlingEventMapper;
 
+@Service
 public class TrackQueryServiceImpl implements TrackQueryService {
 
     @Autowired

@@ -1,7 +1,7 @@
 package com.deepoove.cargo.domain.aggregate.handlingevent;
 
 public enum EventTypeEnum {
-    LOAD(0), UNLOAD(1), RECIEVE(2), END(3);
+    RECIEVE(0), LOAD(1), UNLOAD(2), END(3);
 
     int index;
 

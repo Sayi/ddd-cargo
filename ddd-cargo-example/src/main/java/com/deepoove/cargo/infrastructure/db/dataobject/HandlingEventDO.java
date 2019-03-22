@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class HandlingEventDO {
 
+    private String id;
+
     private String cargoId;
     /**
      * 0:receiver 1:load 2:unload 3:end
@@ -11,6 +13,14 @@ public class HandlingEventDO {
     private int eventType;
     private Date datetime;
     private String scheduleId;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCargoId() {
         return cargoId;

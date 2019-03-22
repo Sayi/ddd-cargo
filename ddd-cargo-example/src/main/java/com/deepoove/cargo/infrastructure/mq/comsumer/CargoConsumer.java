@@ -1,3 +1,4 @@
+package com.deepoove.cargo.infrastructure.mq.comsumer;
 //package com.deepoove.cargo.infrastructure.kafka.comsumer;
 //
 //import org.springframework.kafka.annotation.KafkaListener;

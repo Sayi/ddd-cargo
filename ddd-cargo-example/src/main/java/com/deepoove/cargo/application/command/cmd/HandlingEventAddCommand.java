@@ -2,13 +2,16 @@ package com.deepoove.cargo.application.command.cmd;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class HandlingEventAddCommand {
 
     private String cargoId;
     /**
-     * 0:receiver 1:load 2:unload 3:end
+     * 0:receive 1:load 2:unload 3:end
      */
     private int eventType;
+    
     private Date datetime;
     private String scheduleId;
 

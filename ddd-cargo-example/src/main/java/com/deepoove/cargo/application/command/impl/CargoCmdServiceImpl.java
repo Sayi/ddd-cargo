@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import com.deepoove.cargo.application.command.CargoCmdService;
 import com.deepoove.cargo.application.command.cmd.CargoBookCommand;
 import com.deepoove.cargo.application.command.cmd.CargoDeleteCommand;
 import com.deepoove.cargo.application.command.cmd.CargoDeliveryUpdateCommand;
 import com.deepoove.cargo.application.command.cmd.CargoSenderUpdateCommand;
+import com.deepoove.cargo.common.DomainEventPublisher;
 import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
 import com.deepoove.cargo.domain.aggregate.cargo.CargoBookDomainEvent;
 import com.deepoove.cargo.domain.aggregate.cargo.CargoRepository;
@@ -18,7 +20,6 @@ import com.deepoove.cargo.domain.aggregate.cargo.valueobject.EnterpriseSegment;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEvent;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEventRepository;
 import com.deepoove.cargo.domain.service.CargoDomainService;
-import com.deepoove.cargo.infrastructure.event.DomainEventPublisher;
 import com.deepoove.cargo.infrastructure.rpc.salessystem.SalersService;
 
 @Service
@@ -42,7 +43,7 @@ public class CargoCmdServiceImpl implements CargoCmdService {
                 cargoBookCommand.getOriginLocationCode(),
                 cargoBookCommand.getDestinationLocationCode());
 
-        Cargo cargo = Cargo.newCargo(cargoBookCommand.getSenderPhone(),
+        Cargo cargo = Cargo.newCargo(CargoDomainService.nextCargoId(), cargoBookCommand.getSenderPhone(),
                 cargoBookCommand.getDescription(), delivery);
 
         // 流程编排
@@ -84,7 +85,7 @@ public class CargoCmdServiceImpl implements CargoCmdService {
         List<HandlingEvent> events = handlingEventRepository.findByCargo(cmd.getCargoId());
 
         // domain service
-        cargoDomainService.updateCargoSender(cargo, cmd.getSenderPhone(), events.get(0));
+        cargoDomainService.updateCargoSender(cargo, cmd.getSenderPhone(), CollectionUtils.isEmpty(events) ? null : events.get(0));
 
         // save
         cargoRepository.save(cargo);

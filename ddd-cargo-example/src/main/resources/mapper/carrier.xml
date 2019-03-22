@@ -12,12 +12,12 @@
 		<result property="toLocationId" column="toLocation_code" />
 	</resultMap>
 
-	<select id="select" resultType="carrierMovementDO">
+	<select id="select" resultMap="carrierMovementDO">
 		SELECT * FROM
-		ddd_carrier_movement WHERE id =
+		ddd_carrier_movement WHERE schedule_id =
 		#{scheduleId}
 	</select>
-	<select id="selectAll" resultType="carrierMovementDO">
+	<select id="selectAll" resultMap="carrierMovementDO">
 		SELECT * FROM
 		ddd_carrier_movement
 	</select>

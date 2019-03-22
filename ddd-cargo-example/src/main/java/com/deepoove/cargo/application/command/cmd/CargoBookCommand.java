@@ -11,8 +11,8 @@ public class CargoBookCommand {
         return senderPhone;
     }
 
-    public void setSenderPhone(String senderId) {
-        this.senderPhone = senderId;
+    public void setSenderPhone(String senderPhone) {
+        this.senderPhone = senderPhone;
     }
 
     public String getDescription() {

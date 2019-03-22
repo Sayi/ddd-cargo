@@ -17,9 +17,12 @@ public interface CargoMapper {
     List<CargoDO> selectByCustomer(@Param("phone") String phone);
 
     void save(CargoDO cargoDO);
+    
+    void update(CargoDO cargoDO);
 
     void remove(@Param("id") String id);
 
     int countByCustomer(@Param("phone") String phone);
+
 
 }
