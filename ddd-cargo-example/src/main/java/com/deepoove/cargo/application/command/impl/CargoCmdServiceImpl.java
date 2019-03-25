@@ -11,7 +11,6 @@ import com.deepoove.cargo.application.command.cmd.CargoBookCommand;
 import com.deepoove.cargo.application.command.cmd.CargoDeleteCommand;
 import com.deepoove.cargo.application.command.cmd.CargoDeliveryUpdateCommand;
 import com.deepoove.cargo.application.command.cmd.CargoSenderUpdateCommand;
-import com.deepoove.cargo.common.DomainEventPublisher;
 import com.deepoove.cargo.domain.aggregate.cargo.Cargo;
 import com.deepoove.cargo.domain.aggregate.cargo.CargoBookDomainEvent;
 import com.deepoove.cargo.domain.aggregate.cargo.CargoRepository;
@@ -21,6 +20,7 @@ import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEvent;
 import com.deepoove.cargo.domain.aggregate.handlingevent.HandlingEventRepository;
 import com.deepoove.cargo.domain.service.CargoDomainService;
 import com.deepoove.cargo.infrastructure.rpc.salessystem.SalersService;
+import com.deepoove.cargo.shared.DomainEventPublisher;
 
 @Service
 public class CargoCmdServiceImpl implements CargoCmdService {

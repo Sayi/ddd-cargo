@@ -16,7 +16,6 @@ import com.deepoove.cargo.application.query.qry.EventFindbyCargoQry;
 import com.deepoove.cargo.infrastructure.db.dataobject.CargoDO;
 import com.deepoove.cargo.infrastructure.db.dataobject.HandlingEventDO;
 import com.deepoove.cargo.infrastructure.db.mapper.CargoMapper;
-import com.deepoove.cargo.infrastructure.db.mapper.CarrierMovementMapper;
 import com.deepoove.cargo.infrastructure.db.mapper.HandlingEventMapper;
 
 @Service

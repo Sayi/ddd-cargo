@@ -1,7 +1,5 @@
 package com.deepoove.cargo.domain.aggregate.cargo;
 
-import java.util.Random;
-
 import com.deepoove.cargo.domain.aggregate.cargo.valueobject.DeliverySpecification;
 
 public class Cargo {
