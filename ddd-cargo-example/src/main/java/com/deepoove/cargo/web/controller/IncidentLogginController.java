@@ -1,5 +1,7 @@
 package com.deepoove.cargo.web.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,7 @@ public class IncidentLogginController {
     
     @RequestMapping(method = RequestMethod.POST)
     public void addHandlingEvent(@RequestBody HandlingEventAddCommand cmd) {
+        cmd.setDatetime(new Date());
         incidentLoggingCmdService.addHandlingEvent(cmd);
     }
 
