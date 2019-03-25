@@ -34,4 +34,10 @@ public class CargoQueryServiceImpl implements CargoQueryService {
         return cargos.stream().map(converter::apply).collect(Collectors.toList());
     }
 
+    @Override
+    public CargoDTO getCargo(String cargoId) {
+        CargoDO select = cargoMapper.select(cargoId);
+        return converter.apply(select);
+    }
+
 }

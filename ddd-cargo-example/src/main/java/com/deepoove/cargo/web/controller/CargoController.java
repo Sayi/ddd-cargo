@@ -39,6 +39,11 @@ public class CargoController {
         }
         return cargoQueryService.queryCargos();
     }
+    
+    @RequestMapping(value = "/{cargoId}", method = RequestMethod.GET)
+    public CargoDTO cargo(@PathVariable String cargoId) {
+        return cargoQueryService.getCargo(cargoId);
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public void book(@RequestBody CargoBookCommand cargoBookCommand) {

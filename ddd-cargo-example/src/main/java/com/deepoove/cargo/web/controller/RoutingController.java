@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.deepoove.cargo.application.query.RoutingQueryService;
-import com.deepoove.cargo.infrastructure.db.dataobject.CarrierMovementDO;
+import com.deepoove.cargo.application.query.dto.CarrierMovementDTO;
 import com.deepoove.cargo.infrastructure.db.dataobject.LocationDO;
 
 @RestController
@@ -19,7 +19,7 @@ public class RoutingController {
     private RoutingQueryService routingQueryService;
 
     @RequestMapping(value = "/carrier", method = RequestMethod.GET)
-    public List<CarrierMovementDO> carriers() {
+    public List<CarrierMovementDTO> carriers() {
         return routingQueryService.queryCarriers();
     }
 

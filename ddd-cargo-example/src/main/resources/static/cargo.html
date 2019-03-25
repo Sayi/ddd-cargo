@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="cargo">
+    <meta name="keywords" content="ddd,cargo">
+    <meta name="author" content="Sayi">
+    <title>Cargo Admin</title>
+    <link rel="stylesheet" href="css/cargo.css" />
+    <script src="js/cargo.js"></script>
+</head>
+
+<body>
+    <header>
+    </header>
+    <div class="article">
+        <div id="toolbox">
+            <div class="header">
+                <a href="index.html">
+                    <svg t="1553245912569" class="icon"
+                        style="width: 28px; height: 28px;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                        viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8872">
+                        <path
+                            d="M511.685333 128.619356c-211.509205 0-383.055233 171.467233-383.055233 383.030673 0 211.56344 171.546028 383.036813 383.055233 383.036813 211.539904 0 383.031697-171.47235 383.031697-383.036813C894.71703 300.086589 723.225237 128.619356 511.685333 128.619356zM684.782693 625.442702c-4.747117 2.677992-10.711969 2.044566-14.82566-1.570775-0.657986-0.596588-62.946634-54.753021-158.2717-59.341526l0 113.839745c0 5.258771-3.214205 9.994632-8.15575 11.941983-1.509377 0.596588-3.091408 0.87595-4.699022 0.87595-3.469008 0-6.889921-1.412163-9.373485-4.077875L335.508845 521.887184c-4.571109-4.91801-4.601808-12.525268-0.061398-17.455557L489.410004 336.251254c3.603061-3.895727 9.214872-5.185093 14.120602-3.237741 4.91801 1.922792 8.15575 6.670933 8.15575 11.94096l0 90.176812c59.841923 3.786233 109.360733 34.340109 143.773498 88.934518 27.255761 43.274596 35.314297 86.085634 35.629475 87.887676C692.087053 617.335047 689.530834 622.75243 684.782693 625.442702z"
+                            p-id="8873" data-spm-anchor-id="a313x.7781069.0.i8" fill="#666"></path>
+                    </svg>
+                </a>
+                Cargo详情
+            </div>
+        </div>
+        <div id="main">
+            <div id="info">
+                <div id="cargoId">单号：</div>
+                <div id="senderPhone">发件人：</div>
+                <div id="description">描述：</div>
+                <div id="delivery">目的地：</div>
+            </div>
+            <h1 style="border-bottom: 1px solid #ccc;padding:24px 0 8px">单号追踪</h1>
+            <div id="event">
+                <ul id="eventele">
+                    <!-- <li><svg t="1553248152518" class="icon"
+                            style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                            viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9713">
+                            <path
+                                d="M512 22.953097c-271.722208 0-489.046903 220.774294-489.046903 489.046903s220.774294 489.046903 489.046903 489.046903 489.046903-220.774294 489.046903-489.046903S783.722208 22.953097 512 22.953097z"
+                                fill="#FBD952" p-id="9714"></path>
+                            <path
+                                d="M512 1024C229.265613 1024 0 793.938326 0 512S229.265613 0 512 0s512 230.061674 512 512S794.734387 1024 512 1024z m0-978.093807C254.73957 45.906193 45.906193 254.73957 45.906193 512S254.73957 978.226484 512 978.226484s466.226484-208.833377 466.226484-466.226484S769.26043 45.906193 512 45.906193z"
+                                fill="#444444" p-id="9715" data-spm-anchor-id="a313x.7781069.0.i10"></path>
+                            <path
+                                d="M827.903602 532.432236H532.432236V233.511272c0-13.53304-10.216118-23.749158-23.749157-23.749157s-23.749158 10.216118-23.749158 23.749157v326.11972c0 13.53304 10.216118 23.749158 23.749158 23.749158H827.903602c13.53304 0 23.749158-10.216118 23.749158-23.749158 0-16.982638-10.216118-27.198756-23.749158-27.198756z"
+                                fill="#444444" p-id="9716"></path>
+                        </svg>2019-03-30 08:00：UNLOAD 南京 to 北京</li>
+                    <li><svg t="1553248152518" class="icon"
+                            style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                            viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9713">
+                            <path
+                                d="M512 22.953097c-271.722208 0-489.046903 220.774294-489.046903 489.046903s220.774294 489.046903 489.046903 489.046903 489.046903-220.774294 489.046903-489.046903S783.722208 22.953097 512 22.953097z"
+                                fill="#FBD952" p-id="9714"></path>
+                            <path
+                                d="M512 1024C229.265613 1024 0 793.938326 0 512S229.265613 0 512 0s512 230.061674 512 512S794.734387 1024 512 1024z m0-978.093807C254.73957 45.906193 45.906193 254.73957 45.906193 512S254.73957 978.226484 512 978.226484s466.226484-208.833377 466.226484-466.226484S769.26043 45.906193 512 45.906193z"
+                                fill="#444444" p-id="9715" data-spm-anchor-id="a313x.7781069.0.i10"></path>
+                            <path
+                                d="M827.903602 532.432236H532.432236V233.511272c0-13.53304-10.216118-23.749158-23.749157-23.749157s-23.749158 10.216118-23.749158 23.749157v326.11972c0 13.53304 10.216118 23.749158 23.749158 23.749158H827.903602c13.53304 0 23.749158-10.216118 23.749158-23.749158 0-16.982638-10.216118-27.198756-23.749158-27.198756z"
+                                fill="#444444" p-id="9716"></path>
+                        </svg>2019-03-30 08:00：Load 南京 to 北京</li>
+                    <li><svg t="1553248152518" class="icon"
+                            style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                            viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9713">
+                            <path
+                                d="M512 22.953097c-271.722208 0-489.046903 220.774294-489.046903 489.046903s220.774294 489.046903 489.046903 489.046903 489.046903-220.774294 489.046903-489.046903S783.722208 22.953097 512 22.953097z"
+                                fill="#FBD952" p-id="9714"></path>
+                            <path
+                                d="M512 1024C229.265613 1024 0 793.938326 0 512S229.265613 0 512 0s512 230.061674 512 512S794.734387 1024 512 1024z m0-978.093807C254.73957 45.906193 45.906193 254.73957 45.906193 512S254.73957 978.226484 512 978.226484s466.226484-208.833377 466.226484-466.226484S769.26043 45.906193 512 45.906193z"
+                                fill="#444444" p-id="9715" data-spm-anchor-id="a313x.7781069.0.i10"></path>
+                            <path
+                                d="M827.903602 532.432236H532.432236V233.511272c0-13.53304-10.216118-23.749158-23.749157-23.749157s-23.749158 10.216118-23.749158 23.749157v326.11972c0 13.53304 10.216118 23.749158 23.749158 23.749158H827.903602c13.53304 0 23.749158-10.216118 23.749158-23.749158 0-16.982638-10.216118-27.198756-23.749158-27.198756z"
+                                fill="#444444" p-id="9716"></path>
+                        </svg>2019-03-30 08:00：RECIEVE</li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var cargoId = getParameterByName("cargoId");
+        getCargoEvent(cargoId, function (xmlhttp) {
+            // && xmlhttp.status == 200
+            if (xmlhttp.readyState == 4) {
+                var text = xmlhttp.responseText;
+                var cargoEvent = JSON.parse(text);
+                console.log(cargoEvent);
+                document.getElementById("cargoId").innerHTML = "单号：" + cargoEvent.cargo.id;
+                document.getElementById("senderPhone").innerHTML = "发件人：" + cargoEvent.cargo.senderPhone;
+                document.getElementById("description").innerHTML = "描述：" + cargoEvent.cargo.description;
+                document.getElementById("delivery").innerHTML = "目的地：" + cargoEvent.cargo.originLocationName + " to " + cargoEvent.cargo.destinationLocationName;
+
+                var events = cargoEvent.events;
+                var eventElement = document.getElementById("eventele");
+                events.forEach(element => {
+                    var show = element.datetime + " " + element.eventType + " ";
+                    if (element.carrierMovement) {
+                        show += (element.carrierMovement.fromLocationName + " to " + element.carrierMovement.toLocationName);
+                    }
+                    eventElement.innerHTML = eventElement.innerHTML + '<li><svg t="1553248152518" class="icon"' +
+                        'style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"' +
+                        'viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9713">' +
+                        '<path d="M512 22.953097c-271.722208 0-489.046903 220.774294-489.046903 489.046903s220.774294 489.046903 489.046903 489.046903 489.046903-220.774294 489.046903-489.046903S783.722208 22.953097 512 22.953097z"' +
+                        ' fill="#FBD952" p-id="9714"></path>' +
+                        '<path d="M512 1024C229.265613 1024 0 793.938326 0 512S229.265613 0 512 0s512 230.061674 512 512S794.734387 1024 512 1024z m0-978.093807C254.73957 45.906193 45.906193 254.73957 45.906193 512S254.73957 978.226484 512 978.226484s466.226484-208.833377 466.226484-466.226484S769.26043 45.906193 512 45.906193z"' +
+                        ' fill="#444444" p-id="9715" data-spm-anchor-id="a313x.7781069.0.i10"></path>' +
+                        '<path d="M827.903602 532.432236H532.432236V233.511272c0-13.53304-10.216118-23.749158-23.749157-23.749157s-23.749158 10.216118-23.749158 23.749157v326.11972c0 13.53304 10.216118 23.749158 23.749158 23.749158H827.903602c13.53304 0 23.749158-10.216118 23.749158-23.749158 0-16.982638-10.216118-27.198756-23.749158-27.198756z"' +
+                        '       fill="#444444" p-id="9716"></path>' +
+                        '</svg>' + show + '</li>';
+                });
+                if (!events || events.length == 0) {
+                    eventElement.innerHTML = '<li>暂无物流信息</li>';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

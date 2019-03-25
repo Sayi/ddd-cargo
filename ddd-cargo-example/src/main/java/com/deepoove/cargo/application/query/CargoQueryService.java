@@ -11,4 +11,6 @@ public interface CargoQueryService {
 
     List<CargoDTO> queryCargos(CargoFindbyCustomerQry qry);
 
+    CargoDTO getCargo(String cargoId);
+
 }

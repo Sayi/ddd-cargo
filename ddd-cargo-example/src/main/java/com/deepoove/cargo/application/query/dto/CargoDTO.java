@@ -6,6 +6,7 @@ public class CargoDTO {
     private String senderPhone;
     private String description;
     private String originLocationName;
+    private String destinationLocationCode;
     private String destinationLocationName;
 
     public String getId() {
@@ -46,6 +47,14 @@ public class CargoDTO {
 
     public void setDestinationLocationName(String destinationLocationName) {
         this.destinationLocationName = destinationLocationName;
+    }
+
+    public String getDestinationLocationCode() {
+        return destinationLocationCode;
+    }
+
+    public void setDestinationLocationCode(String destinationLocationCode) {
+        this.destinationLocationCode = destinationLocationCode;
     }
 
 }

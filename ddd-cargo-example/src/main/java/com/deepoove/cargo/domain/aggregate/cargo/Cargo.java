@@ -56,7 +56,7 @@ public class Cargo {
 
     public void changeDelivery(String destinationLocationCode) {
         if (this.delivery
-                .getOriginLocationCode() == destinationLocationCode) { throw new IllegalArgumentException(
+                .getOriginLocationCode().equals(destinationLocationCode)) { throw new IllegalArgumentException(
                         "destination and origin location cannot be the same."); }
         this.delivery.setDestinationLocationCode(destinationLocationCode);
     }

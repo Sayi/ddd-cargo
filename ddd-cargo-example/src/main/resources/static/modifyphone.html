@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="cargo">
+    <meta name="keywords" content="ddd,cargo">
+    <meta name="author" content="Sayi">
+    <title>Cargo Admin</title>
+    <link rel="stylesheet" href="css/cargo.css" />
+    <script src="js/cargo.js"></script>
+</head>
+
+<body>
+    <header>
+    </header>
+    <div class="article">
+        <div id="toolbox">
+            <div class="header">
+                <a href="index.html">
+                    <svg t="1553245912569" class="icon"
+                        style="width: 28px; height: 28px;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                        viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8872">
+                        <path
+                            d="M511.685333 128.619356c-211.509205 0-383.055233 171.467233-383.055233 383.030673 0 211.56344 171.546028 383.036813 383.055233 383.036813 211.539904 0 383.031697-171.47235 383.031697-383.036813C894.71703 300.086589 723.225237 128.619356 511.685333 128.619356zM684.782693 625.442702c-4.747117 2.677992-10.711969 2.044566-14.82566-1.570775-0.657986-0.596588-62.946634-54.753021-158.2717-59.341526l0 113.839745c0 5.258771-3.214205 9.994632-8.15575 11.941983-1.509377 0.596588-3.091408 0.87595-4.699022 0.87595-3.469008 0-6.889921-1.412163-9.373485-4.077875L335.508845 521.887184c-4.571109-4.91801-4.601808-12.525268-0.061398-17.455557L489.410004 336.251254c3.603061-3.895727 9.214872-5.185093 14.120602-3.237741 4.91801 1.922792 8.15575 6.670933 8.15575 11.94096l0 90.176812c59.841923 3.786233 109.360733 34.340109 143.773498 88.934518 27.255761 43.274596 35.314297 86.085634 35.629475 87.887676C692.087053 617.335047 689.530834 622.75243 684.782693 625.442702z"
+                            p-id="8873" data-spm-anchor-id="a313x.7781069.0.i8" fill="#666"></path>
+                    </svg>
+                </a>
+                修改发件人手机号
+            </div>
+
+        </div>
+        <div id="main">
+            <div class="form" action="" method="post">
+                <div>
+                    <div class="label">发件人: </div>
+                    <div><input type="text" id="senderphone" /></div>
+                </div>
+
+                <div>
+                    <div class="label"></div>
+                    <div><button onclick="modify()">
+                            修改
+                        </button></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var cargoId = getParameterByName("cargoId");
+        var senderPhoneElement = document.getElementById("senderphone");
+
+        getCargo(cargoId, function (xmlhttp) {
+            // && xmlhttp.status == 200
+            if (xmlhttp.readyState == 4) {
+                var text = xmlhttp.responseText;
+                var cargo = JSON.parse(text);
+                senderPhoneElement.value = cargo.senderPhone;
+            }
+        });
+
+        function modify() {
+            var senderphone = senderPhoneElement.value;
+
+            if (!senderphone) {
+                alert("Please input sender phone");
+                return;
+            }
+
+            var data = {
+                senderPhone: senderphone,
+            };
+
+            var xmlhttp = new XMLHttpRequest();
+            var url = "cargo/" + cargoId + "/sender";
+            xmlhttp.open("PUT", url, true);
+            xmlhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+            xmlhttp.send(JSON.stringify(data));
+            xmlhttp.onreadystatechange = function () {
+                // && xmlhttp.status == 200
+                if (xmlhttp.readyState == 4) {
+                    if (xmlhttp.status != 200) {
+                        var text = xmlhttp.responseText;
+                        alert(text);
+                    } else {
+                        alert("修改成功");
+                        location.href = "/index.html";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
