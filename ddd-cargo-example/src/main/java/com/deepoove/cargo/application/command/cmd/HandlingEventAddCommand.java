@@ -2,8 +2,6 @@ package com.deepoove.cargo.application.command.cmd;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class HandlingEventAddCommand {
 
     private String cargoId;
