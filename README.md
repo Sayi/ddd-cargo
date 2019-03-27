@@ -1,4 +1,4 @@
-## ddd-cargo
+# ddd-cargo
 领域驱动货物需求示例
 
 ## 需求-节选自《领域驱动设计第7章》
@@ -35,9 +35,6 @@ ddd-cargo-example是一个单Maven模块的项目，DDD+CQRS落地示例，基�
 #### 追踪Cargo
 ![](./cargo_track.png)
 
-## 相关资料
-[The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)  
-[DDD, Hexagonal, Onion, Clean, CQRS](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)  
-《领域驱动设计》  
-《实现领域驱动设计》  
-[dddsample-core](https://github.com/citerus/dddsample-core)  
+## 文章
+Blog：[领域驱动设计DDD和CQRS落地](http://deepoove.com/blog/#/posts/69)
+
