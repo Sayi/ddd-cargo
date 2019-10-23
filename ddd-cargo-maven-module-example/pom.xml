@@ -40,7 +40,8 @@
 		<module>cargo-domain</module>
 		<module>cargo-infrastructure</module>
 		<module>cargo-api</module>
-		<module>cargo-web</module>
+		<module>cargo-query</module>
 	    <module>cargo-start</module>
+    <module>cargo-shared</module>
   </modules>
 </project>

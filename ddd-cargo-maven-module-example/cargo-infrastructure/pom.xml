@@ -40,13 +40,13 @@
 		</dependency>
 		<dependency>
 			<groupId>com.deepoove</groupId>
-			<artifactId>cargo-domain</artifactId>
+			<artifactId>cargo-query</artifactId>
 			<version>${parent.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.deepoove</groupId>
-			<artifactId>cargo-web</artifactId>
-			<version>${parent.version}</version>
-		</dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>cargo-api</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
 	</dependencies>
 </project>

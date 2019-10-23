@@ -9,14 +9,12 @@
 		<artifactId>ddd-cargo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>cargo-application</artifactId>
-	<packaging>jar</packaging>
-	<name>cargo-application</name>
+	<artifactId>cargo-query</artifactId>
+	<name>cargo-query</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -24,9 +22,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.deepoove</groupId>
-			<artifactId>cargo-domain</artifactId>
+			<artifactId>cargo-shared</artifactId>
 			<version>${parent.version}</version>
 		</dependency>
 	</dependencies>
-
 </project>

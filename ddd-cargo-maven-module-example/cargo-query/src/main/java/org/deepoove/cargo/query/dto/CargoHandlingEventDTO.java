@@ -1,0 +1,5 @@
+package org.deepoove.cargo.query.dto;
+
+public class CargoHandlingEventDTO {
+
+}
