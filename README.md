@@ -36,5 +36,5 @@ ddd-cargo-example是一个单Maven模块的项目，DDD+CQRS落地示例，基�
 ![](./cargo_track.png)
 
 ## 文章
-Blog：[领域驱动设计DDD和CQRS落地](http://deepoove.com/blog/#/posts/69)
+[领域驱动设计DDD和CQRS落地](https://mp.weixin.qq.com/s/R-jBnPhWJHs7J-4CETV88A)
 
